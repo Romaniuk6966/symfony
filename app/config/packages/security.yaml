@@ -1,0 +1,38 @@
+security:
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_ADMIN
+        ROLE_AUTHOR: ROLE_AUTHOR
+
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+            algorithm: 'auto'
+            cost: 15
+    providers:
+        backend_users:
+            memory:
+                users:
+                    john_admin: {
+                        password: '$2a$12$Z1LMcf288wyckH/HTyGj5.ztj9VJvRBFAdHiZkb8732xnufu1Uqpq', #test12345
+                        roles: [ 'ROLE_ADMIN' ]
+                    }
+                    done_author: {
+                        password: '$2a$12$b26CurXmd9KuWsPCd3QDG.GnRR9luW/Xgk446MtlcgREHgZqMvaDa', #test54321
+                        roles: [ 'ROLE_AUTHOR' ]
+                    }
+
+    firewalls:
+        api:
+            pattern: ^/api
+            stateless: true
+            entry_point: jwt
+            json_login:
+                check_path: /api/login_check
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+            jwt: ~
+            refresh_jwt:
+                check_path: /api/refresh_token
+
+    access_control:
+        - { path: ^/api/(doc|login|refresh_token), roles: PUBLIC_ACCESS }
+        - { path: ^/api, roles: [ROLE_ADMIN, ROLE_AUTHOR] }

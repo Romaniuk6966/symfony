@@ -1,0 +1,12 @@
+flysystem:
+    storages:
+        default.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/public/media'
+
+        aws.storage:
+            adapter: 'aws'
+            options:
+                client: Aws\S3\S3Client
+                bucket: 'symfony-test-bucket'

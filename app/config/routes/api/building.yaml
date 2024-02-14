@@ -1,0 +1,49 @@
+get_buildings:
+  path: /
+  controller: App\Controller\Api\BuildingController::all
+  methods: GET
+
+get_building:
+  path: /{uuid}
+  controller: App\Controller\Api\BuildingController::show
+  methods: GET
+
+add_building:
+  path: /
+  controller: App\Controller\Api\BuildingController::add
+  methods: POST
+
+get_building_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaBuildingController::show
+  methods: GET
+
+add_building_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaBuildingController::add
+  methods: POST
+
+delete_building_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaBuildingController::delete
+  methods: DELETE
+
+get_building_attributes:
+  path: /{uuid}/attribute
+  controller: App\Controller\Api\MetadataBuildingController::all
+  methods: GET
+
+add_building_attribute:
+  path: /{uuid}/attribute
+  controller: App\Controller\Api\MetadataBuildingController::add
+  methods: POST
+
+get_building_attribute:
+  path: /{uuid}/attribute/{attribute_uuid}
+  controller: App\Controller\Api\MetadataBuildingController::show
+  methods: GET
+
+delete_building_attribute:
+  path: /{uuid}/attribute/{attribute_uuid}
+  controller: App\Controller\Api\MetadataBuildingController::delete
+  methods: DELETE

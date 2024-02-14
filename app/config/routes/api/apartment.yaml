@@ -1,0 +1,55 @@
+get_apartments:
+  path: /
+  controller: App\Controller\Api\ApartmentController::all
+  methods: GET
+
+get_apartment:
+  path: /{uuid}
+  controller: App\Controller\Api\ApartmentController::show
+  methods: GET
+
+add_apartment:
+  path: /
+  controller: App\Controller\Api\ApartmentController::add
+  methods: POST
+
+delete_apartment:
+  path: /{uuid}
+  controller: App\Controller\Api\ApartmentController::delete
+  methods: DELETE
+
+get_apartment_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaApartmentController::show
+  methods: GET
+
+add_apartment_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaApartmentController::add
+  methods: POST
+
+delete_apartment_thumbnail:
+  path: /{uuid}/thumbnail
+  controller: App\Controller\Api\MediaApartmentController::delete
+  methods: DELETE
+
+get_apartment_attributes:
+  path: /{uuid}/attribute
+  controller: App\Controller\Api\MetadataApartmentController::all
+  methods: GET
+
+add_apartment_attribute:
+  path: /{uuid}/attribute
+  controller: App\Controller\Api\MetadataApartmentController::add
+  methods: POST
+
+get_apartment_attribute:
+  path: /{uuid}/attribute/{attribute_uuid}
+  controller: App\Controller\Api\MetadataApartmentController::show
+  methods: GET
+
+delete_apartment_attribute:
+  path: /{uuid}/attribute/{attribute_uuid}
+  controller: App\Controller\Api\MetadataApartmentController::delete
+  methods: DELETE
+

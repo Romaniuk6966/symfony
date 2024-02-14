@@ -1,0 +1,13 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+apartment:
+    resource: 'routes/api/apartment.yaml'
+    prefix:   '/api/v1/apartment'
+
+building:
+    resource: 'routes/api/building.yaml'
+    prefix:   '/api/v1/building'
