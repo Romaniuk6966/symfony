@@ -1,8 +1,6 @@
 <?php
 namespace App\Service;
 
-use App\Dto\BuildingDto;
-use App\Entity\Apartment;
 use App\Entity\Building;
 use App\Entity\Media;
 use App\Exception\BuildingNotFoundException;
